@@ -1,0 +1,37 @@
+.App {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.form {
+    display: inline-block; /* Keep form elements inline */
+    text-align: left;
+    margin-top: 20px;
+}
+
+.div {
+    margin-bottom: 15px;
+}
+
+.label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.input {
+    padding: 5px;
+    font-size: 16px;
+    width: 200px;
+}
+
+.button {
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.p {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}

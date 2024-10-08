@@ -20,13 +20,13 @@ public class GreetingResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String personalizedHello(@PathParam("name") String name) { 
-        return "Hello " + name; 
+        return " Hello"  +    name;
     }
     @POST
     @Path("/personalized")
     @Produces(MediaType.TEXT_PLAIN)
     public String personalizedHelloPost(Person p) {
-        return "Hello" + p.getFirst() + " " + p.getLast();
+        return "Hello " + p.getFirst() + " " + p.getLast();
     }
     public static class  Person {
         private String first;
