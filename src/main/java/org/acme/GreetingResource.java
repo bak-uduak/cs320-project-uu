@@ -1,14 +1,22 @@
 package org.acme;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+import  java.util.List;
+
+
+//import javax.inject.Inject;
+//import javax.persistence.EntityManager;
 
 @Path("/hello")
 public class GreetingResource {
+
+    @Inject
+    EntityManager entityManager; //To inject EntityManager for database operations
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -17,10 +25,13 @@ public class GreetingResource {
     }
 
     @Path("/personalized/{name}")
-    @GET
+    @POST
+    @Transactional
     @Produces(MediaType.TEXT_PLAIN)
-    public String personalizedHello(@PathParam("name") String name) { 
-        return " Hello"  +    name;
+    public String personalizedHello(@PathParam("name") String name) {
+        UserName userName = new UserName(name);
+        userName.persist();
+        return " Hello "  + name + "! Your name has been stored in the database.";
     }
     @POST
     @Path("/personalized")
@@ -28,6 +39,25 @@ public class GreetingResource {
     public String personalizedHelloPost(Person p) {
         return "Hello " + p.getFirst() + " " + p.getLast();
     }
+
+    // Get all food items (GET)
+    @GET
+    @Path("/food")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Food> getAllFood() {
+        return entityManager.createQuery("SELECT f FROM Food f", Food.class).getResultList();
+    }
+
+    //Add food types (POST)
+    @POST
+    @Path("food")
+    @Transactional
+    @Consumes(MediaType.TEXT_PLAIN)
+    public Response addFood(Food food) {
+        entityManager.persist(food);
+        return Response.ok("Food item " + food.getName() + " has been added to the list!").build();
+    }
+
     public static class  Person {
         private String first;
         private String last;
