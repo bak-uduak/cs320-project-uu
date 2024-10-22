@@ -1,7 +1,7 @@
 package org.acme;
 
 import jakarta.inject.Inject;
-import jakarta.persistence.EntityManager;
+//import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -15,8 +15,8 @@ import  java.util.List;
 @Path("/hello")
 public class GreetingResource {
 
-    @Inject
-    EntityManager entityManager; //To inject EntityManager for database operations
+   // @Inject
+    //EntityManager entityManager; //To inject EntityManager for database operations
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -45,7 +45,7 @@ public class GreetingResource {
     @Path("/food")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Food> getAllFood() {
-        return entityManager.createQuery("SELECT f FROM Food f", Food.class).getResultList();
+        return Food.listAll(); //entityManager.createQuery("SELECT f FROM Food f", Food.class).getResultList();
     }
 
     //Add food types (POST)
@@ -54,7 +54,7 @@ public class GreetingResource {
     @Transactional
     @Consumes(MediaType.TEXT_PLAIN)
     public Response addFood(Food food) {
-        entityManager.persist(food);
+        food.persist();
         return Response.ok("Food item " + food.getName() + " has been added to the list!").build();
     }
 

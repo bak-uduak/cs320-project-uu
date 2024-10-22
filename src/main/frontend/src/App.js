@@ -1,8 +1,16 @@
 import React, {useEffect,  useState } from 'react';
 import './App.css';
+import {useNavigate} from "react-router-dom";
 
 
 function App() {
+
+  //Newly added code to handle navigation.
+  const navigate = useNavigate();
+  const navigateToPage2 = () => {
+    navigate('/page2');
+  } //end
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState('');
@@ -59,6 +67,9 @@ function App() {
             />
         </div>
   <button type="submit">Submit</button>
+          <div> //Newly added code
+          <button onClick={navigateToPage2}>Page 2</button>
+          </div> //end
 </form>
 
   {/* Display the message */}
