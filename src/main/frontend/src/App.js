@@ -6,13 +6,15 @@ import {useNavigate} from "react-router-dom";
 function App() {
 
   const navigate = useNavigate();
-  const navigateToAbout = () => {
-    navigate('/about');
-  }
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState('');
+
+  const navigateToPage2 = () => {
+    navigate('/page2');
+  };
+
 
   // Takes a function and a dependency array.
   //useEffect(() => { [Will need to confirm if this will need to be removed from the comment]
@@ -67,7 +69,7 @@ function App() {
         </div>
   <button type="submit">Submit</button>
           <div>
-          <button onClick={navigateToAbout}>About </button>
+          <button onClick={navigateToPage2}>Go to Page 2 </button>
           </div>
 </form>
 

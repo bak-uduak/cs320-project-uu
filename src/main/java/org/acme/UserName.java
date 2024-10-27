@@ -1,9 +1,9 @@
 package org.acme;
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import jakarta.persitence.Entity;
+//import jakarta.persitence.Entity;
 import jakarta.persistence.Table;
 
-@Entity
+//@Entity
 @Table(name = "user_names")
 public class UserName extends PanacheEntity {
     public String name;
