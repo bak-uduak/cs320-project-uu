@@ -5,11 +5,10 @@ import {useNavigate} from "react-router-dom";
 
 function App() {
 
-  //Newly added code to handle navigation.
   const navigate = useNavigate();
-  const navigateToPage2 = () => {
-    navigate('/page2');
-  } //end
+  const navigateToAbout = () => {
+    navigate('/about');
+  }
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -67,9 +66,9 @@ function App() {
             />
         </div>
   <button type="submit">Submit</button>
-          <div> //Newly added code
-          <button onClick={navigateToPage2}>Page 2</button>
-          </div> //end
+          <div>
+          <button onClick={navigateToAbout}>About </button>
+          </div>
 </form>
 
   {/* Display the message */}
@@ -79,3 +78,103 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useState } from 'react';
+// import './App.css';
+//
+// function App() {
+//   const [firstName, setFirstName] = useState('');
+//   const [lastName, setLastName] = useState('');
+//   const [message, setMessage] = useState('');
+//
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const response = await fetch('/hello/personalized', {
+//         const: response = await fetch("/hello/personalized", {
+//           method: 'POST',
+//           headers: {
+//             'Content-Type': 'application/json',
+//           },
+//           body: JSON.stringify({ first:firstName, last:lastName }),
+//         }),
+//
+//         if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//
+//       const text = await response.text();
+//       setMessage(text);
+//     } catch (error); {
+//         console.error('Error fetching message:', error);
+//         setMessage('Failed to fetch message from server');
+//       }
+//     };
+//
+//     return (
+//         <div className="App">
+//           <header>
+//             <h1>Personalized Greeting</h1>
+//           </header>
+//           <main>
+//             <form onSubmit={handleSubmit}>
+//               <input
+//                   type="text"
+//                   placeholder="First Name"
+//                   value={firstName}
+//                   onChange={(e) => setFirstName(e.target.value)}
+//                   required
+//               />
+//               <input
+//                   type="text"
+//                   placeholder="Last Name"
+//                   value={lastName}
+//                   onChange={(e) => setLastName(e.target.value)}
+//                   required
+//               />
+//               <button type="submit">Submit</button>
+//             </form>
+//             {message && <p className="message">{message}</p>}
+//           </main>
+//         </div>
+//     );
+//   }
+// }
+//
+//
+//
+//
+//
+//
+//
