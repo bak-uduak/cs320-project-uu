@@ -36,7 +36,8 @@ public class GreetingResource {
     @POST
     @Produces(MediaType.TEXT_PLAIN)
     public String personalizedHelloPost(Person p) {
-        return "Hello " + p.getFirst() + " " + p.getLast();
+       // return "Hello " + p.getFirst() + " " + p.getLast();
+        return "Hello " + p.getFirst() + " " + p.getLast() + " Navigate to view dishes";
     }
 
     // Use GET request to retrieve names

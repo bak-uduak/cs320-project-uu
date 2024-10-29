@@ -1,0 +1,214 @@
+/* Navbar.css */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background-color: #4CAF50; /* Background color for the navbar */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.navbar-logo {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo container - set spacing and alignment */
+.logo {
+    margin-right: 10px;
+}
+
+/* Logo image styling */
+.logo img {
+    width: 40px;            /* Adjust size as needed to make it smaller */
+    height: 40px;
+    border-radius: 50%;     /* Makes the image round */
+    object-fit: cover;      /* Ensures the image content scales properly in the round shape */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.navbar h1 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    color: white;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.navbar-links a {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: underline;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+/* Hover effect for links */
+.navbar-links a:hover {
+    background-color: #45a049; /* Darker shade on hover */
+    color: #FFD700; /* Optional hover color */
+}
+
+/* Active link styling for visual feedback */
+.navbar-links a:active {
+    transform: scale(0.98);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar h1 {
+        font-size: 1.2em;
+    }
+    .navbar-links {
+        gap: 10px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*!* Navbar.css *!*/
+/*.navbar {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    justify-content: space-between;*/
+/*    padding: 15px 30px;*/
+/*    background-color: #4CAF50; !* Background color for the navbar *!*/
+/*    color: white;*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); !* Subtle shadow for depth *!*/
+/*}*/
+
+/*.navbar-logo {*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+
+/*.logo {*/
+/*    width: 50px; !* Adjust logo size as needed *!*/
+/*    height: auto;*/
+/*    margin-right: 10px;*/
+/*}*/
+
+/*.logo img {*/
+/*    width: 40px;  !* Adjust size as needed to make it smaller *!*/
+/*    height: 40px;*/
+/*    border-radius: 50%;  !* Makes the image round *!*/
+/*    object-fit: cover;   !* Ensures the image content scales properly in the round shape *!*/
+/*    margin-right: 10px;*/
+/*    vertical-align: middle;*/
+/*}*/
+
+/*.navbar h1 {*/
+/*    font-size: 1.5em;*/
+/*    font-weight: bold;*/
+/*    margin: 0;*/
+/*    color: white;*/
+/*}*/
+
+/*.navbar-links {*/
+/*    display: flex;*/
+/*    gap: 20px;*/
+/*}*/
+
+/*.navbar-links a {*/
+/*    color: white;*/
+/*    text-decoration: none;*/
+/*    font-weight: 600;*/
+/*    font-size: 1em;*/
+/*    padding: 8px 15px;*/
+/*    border-radius: 5px;*/
+/*    transition: color 0.3s, background-color 0.3s;*/
+/*}*/
+
+/*!* Hover effect for links *!*/
+/*.navbar-links a:hover {*/
+/*    background-color: #45a049; !* Darker shade on hover *!*/
+/*    color: #FFD700; !* Optional hover color *!*/
+/*}*/
+
+/*!* Active link styling for visual feedback *!*/
+/*.navbar-links a:active {*/
+/*    transform: scale(0.98);*/
+/*}*/
+
+/*!* Responsive adjustments for smaller screens *!*/
+/*@media (max-width: 768px) {*/
+/*    .navbar h1 {*/
+/*        font-size: 1.2em;*/
+/*    }*/
+/*    .navbar-links {*/
+/*        gap: 10px;*/
+/*        font-size: 0.9em;*/
+/*    }*/
+/*}*/
+
+/*@media (max-width: 480px) {*/
+/*    .navbar {*/
+/*        flex-direction: column;*/
+/*        align-items: flex-start;*/
+/*    }*/
+/*    .navbar-links {*/
+/*        flex-direction: column;*/
+/*        gap: 10px;*/
+/*        width: 100%;*/
+/*    }*/
+/*}*/

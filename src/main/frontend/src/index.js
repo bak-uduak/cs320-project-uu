@@ -2,7 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Page2 from "./Page2";
+import About from './About/About';
+import Users from './Users/Users';
+import Recipes from './Recipes/Recipes';
+import Categories from './Categories/Categories';
+import Comments from './Comments/Comments';
+import Dashboard from './Dashboard/Dashboard';
 import Navbar from "./Navbar";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
@@ -14,9 +19,12 @@ root.render(
 
           <Routes>
               <Route path="/" element={ <App/>}/>
-              <Route path="/page2" element={<Page2/>}/>{
-
-            }
+              <Route path="/about" element={<About />} />
+              <Route path="/users" element={<Users />} />
+              <Route path="/recipes" element={<Recipes />} />
+              <Route path="/categories" element={<Categories />} />
+              <Route path="/comments" element={<Comments />} />
+              <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
       </BrowserRouter>
 

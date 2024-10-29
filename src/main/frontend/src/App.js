@@ -11,8 +11,8 @@ function App() {
   const [lastName, setLastName] = useState('');
   const [message, setMessage] = useState('');
 
-  const navigateToPage2 = () => {
-    navigate('/page2');
+  const navigateToDashboard = () => {
+    navigate('/dashboard');
   };
 
 
@@ -46,35 +46,35 @@ function App() {
 
     return (
         <div className='App'>
-          <h1>Personalized Greeting</h1>
+          <header>
+          <h1> Welcome to Food Exploration Page </h1>
+          </header>
+          <main>
 
           <form onSubmit={handleSubmit}>
-            <div>
-              <label>First Name:</label>
-              <input
+            <input
                 type="text"
+               // placeholder="First Name"
+                placeholder="Enter Your First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 required
-                />
-            </div>
-            <div>
-            <label>Last Name:</label>
+            />
             <input
                 type="text"
+                placeholder="Enter Your Last Name"
                 value={lastName}
-                onChange={(e) => setLastName(e.target.value)} // Update state with input
+                onChange={(e) => setLastName(e.target.value)}
                 required
             />
-        </div>
   <button type="submit">Submit</button>
           <div>
-          <button onClick={navigateToPage2}>Go to Page 2 </button>
+          <button onClick={navigateToDashboard}>Go to the Recipe Dashboard </button>
           </div>
 </form>
 
-  {/* Display the message */}
   {message && <p>{message}</p>}
+          </main>
 </div>
   );
 }
@@ -104,7 +104,24 @@ export default App;
 
 
 
-
+{/*    <div>*/}
+{/*      <label>First Name:</label>*/}
+{/*      <input*/}
+{/*        type="text"*/}
+{/*        value={firstName}*/}
+{/*        onChange={(e) => setFirstName(e.target.value)}*/}
+{/*        required*/}
+{/*        />*/}
+{/*    </div>*/}
+{/*    <div>*/}
+{/*    <label>Last Name:</label>*/}
+{/*    <input*/}
+{/*        type="text"*/}
+{/*        value={lastName}*/}
+{/*        onChange={(e) => setLastName(e.target.value)} // Update state with input*/}
+{/*        required*/}
+{/*    />*/}
+{/*</div>*/}
 
 
 

@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f4f4f9;
+}
+
+.recipes {
+    text-align: center;
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipes h1 {
+    color: #282c34;
+    padding: 15px 0;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.recipes form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.recipes label {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.recipes input[type="text"],
+.recipes input[type="url"],
+.recipes input[type="date"],
+.recipes textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.recipes textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.recipes button {
+    padding: 12px;
+    font-size: 1.1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.recipes button:hover {
+    background-color: #45a049;
+}
+
+.recipes input:focus,
+.recipes textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .recipes {
+        padding: 15px;
+    }
+    .recipes h1 {
+        font-size: 1.6em;
+    }
+    .recipes button {
+        font-size: 1em;
+    }
+    /* Main styling for the navigation menu */
+    .nav-menu {
+        display: flex;
+        justify-content: space-around;
+        list-style: none;
+        padding: 0;
+    }
+
+    .nav-menu ul li a {
+        text-decoration: none;
+        color: #333; /* Regular color for tabs */
+    }
+
+    /* Add hover effect for navigation tabs to highlight them */
+    .nav-menu ul li a {
+        transition: color 0.3s, font-weight 0.3s;
+    }
+
+    .nav-menu ul li a:hover {
+        color: #4CAF50; /* Change color to the desired highlight color */
+        font-weight: bold; /* Bolden the text on hover */
+    }
+
+    .healthy-food-image {
+        width: 250px; /* Adjust the width as needed */
+        margin: 20px auto;
+        display: block;
+    }
+
+}
