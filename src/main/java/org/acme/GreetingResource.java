@@ -21,22 +21,18 @@ public class GreetingResource {
         return "Hello RESTEasy";
     }
     // Main creation in the DB
-    @Path("/personalized/{name}")
-    @POST
-    @Produces(MediaType.TEXT_PLAIN)
-    @Transactional
-    public String personalizedHello(@PathParam("name") String name) {
-        UserName userName = new UserName(name);
-        userName.persist();
-        return "Hello " + name + "! Your name has been stored in the database.";
-    }
-
-    // Frontend
     @Path("/personalized")
     @POST
     @Produces(MediaType.TEXT_PLAIN)
-    public String personalizedHelloPost(Person p) {
-       // return "Hello " + p.getFirst() + " " + p.getLast();
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Transactional
+//    public String personalizedHello(@PathParam("name") String name) {
+//        UserName userName = new UserName(name);
+    public String personalizedHello(Person p) {
+        // Create UserName instance from Person's first and last name
+        UserName userName = new UserName(p.getFirst(), p.getLast());
+        userName.persist();
+
         return "Hello " + p.getFirst() + " " + p.getLast() + " Navigate to view dishes";
     }
 
@@ -60,18 +56,19 @@ public class GreetingResource {
         return Response.ok(userName).build();
     }
 
-    // Use PUT request to update a name in the DB
+    // Use PUT request to update a first and last name in the DB
     @PUT
     @Path("/names/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
-    public Response updateName(@PathParam("id") Long id, UserName updatedName) {
+   public Response getName(@PathParam("id") Long id, UserName updatedName) {
         UserName userName = UserName.findById(id);
         if (userName == null) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
-        userName.name = updatedName.name; // Directly update the name field
+        userName.firstName = updatedName.firstName;
+        userName.lastName = updatedName.lastName; // Update the name field directly
         return Response.ok(userName).build();
     }
 
@@ -129,3 +126,16 @@ public class GreetingResource {
 
 
 
+
+
+
+
+//        return "Hello " + name + "! Your name has been stored in the database.";
+//
+//
+//    // Frontend
+//    @Path("/personalized")
+//    @POST
+//    @Produces(MediaType.TEXT_PLAIN)
+//    public String personalizedHelloPost(Person p) {
+//       // return "Hello " + p.getFirst() + " " + p.getLast();

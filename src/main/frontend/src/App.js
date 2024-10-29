@@ -3,7 +3,7 @@ import './App.css';
 import {useNavigate} from "react-router-dom";
 
 
-function App() {
+const App = () => {
 
   const navigate = useNavigate();
 
@@ -30,9 +30,9 @@ function App() {
           // JSON.stringify usage to convert the body to JSON.
           body: JSON.stringify({first:firstName , last:lastName}),
         });
-        // Extract response as plain text
+
+        // Extract response as plain text and Corrected: Set the response text to the message state variable.
         const text: string = await response.text();
-        // Corrected: Set the response text to the message state variable.
         setMessage(text);
       } catch (error) {
         console.error('Error fetching message:', error);

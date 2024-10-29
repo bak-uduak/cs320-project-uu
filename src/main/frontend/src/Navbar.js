@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaHome, FaImages, FaInfoCircle, FaEnvelope } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -12,7 +13,7 @@ const Navbar = () => {
         <nav className="nav">
             <div className="logo">
                 {/* Directly reference the logo image in the public folder */}
-                <img src="/TasteQuestLogo.png" alt="TasteQuest Logo" className="logo-image" />
+                {/*<img src="/TasteQuestLogo.png" alt="TasteQuest Logo" className="logo-image" />*/}
             </div>
             <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
                 <span></span>

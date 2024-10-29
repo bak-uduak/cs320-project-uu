@@ -26,6 +26,10 @@
     margin: 5px;
 }
 
+input::placeholder {
+    color: #666;
+}
+
 .button {
     border-right: 4px;
     border: none;
