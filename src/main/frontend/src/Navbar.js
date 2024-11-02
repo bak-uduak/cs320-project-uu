@@ -13,7 +13,7 @@ const Navbar = () => {
         <nav className="nav">
             <div className="logo">
                 {/* Directly reference the logo image in the public folder */}
-                {/*<img src="/TasteQuestLogo.png" alt="TasteQuest Logo" className="logo-image" />*/}
+                <img src="/TasteQuestLogo.png" alt="TasteQuest Logo" className="logo-image" />
             </div>
             <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
                 <span></span>
@@ -26,6 +26,7 @@ const Navbar = () => {
                 <Link to="/categories "> Categories</Link>
                 <Link to="/recipes "> Recipes</Link>
                 <Link to="/comments "> Comments</Link>
+                <Link to="/users "> Users</Link>
             </div>
         </nav>
     );

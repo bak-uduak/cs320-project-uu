@@ -26,14 +26,19 @@ public class GreetingResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
-//    public String personalizedHello(@PathParam("name") String name) {
-//        UserName userName = new UserName(name);
+
     public String personalizedHello(Person p) {
+
+        // Debugging: Print the received first and last name
+        System.out.println("Received First Name: " + p.getFirst());
+        System.out.println("Received Last Name: " + p.getLast());
+
+
         // Create UserName instance from Person's first and last name
         UserName userName = new UserName(p.getFirst(), p.getLast());
         userName.persist();
 
-        return "Hello " + p.getFirst() + " " + p.getLast() + " Navigate to view dishes";
+        return "Hello " + p.getFirst() + " " + p.getLast() + " your account has been created successfully";
     }
 
     // Use GET request to retrieve names
@@ -85,10 +90,16 @@ public class GreetingResource {
         return Response.noContent().build();
     }
 
+    // Inner DTO class for handling POST request data
     public static class Person {
         private String first;
         private String last;
 
+        // No-argument constructor
+        public Person() {}
+
+
+        // Use annotations to bind JSON properties to fields
         public String getFirst() {
             return first;
         }
@@ -101,7 +112,7 @@ public class GreetingResource {
             return last;
         }
 
-        public void setLast(String last) {
+        public void setLast(String last){
             this.last = last;
         }
     }
@@ -129,13 +140,3 @@ public class GreetingResource {
 
 
 
-
-//        return "Hello " + name + "! Your name has been stored in the database.";
-//
-//
-//    // Frontend
-//    @Path("/personalized")
-//    @POST
-//    @Produces(MediaType.TEXT_PLAIN)
-//    public String personalizedHelloPost(Person p) {
-//       // return "Hello " + p.getFirst() + " " + p.getLast();

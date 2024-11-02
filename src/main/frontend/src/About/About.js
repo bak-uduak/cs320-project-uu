@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+export default About;
 
 function About() {
     return (
@@ -20,9 +21,9 @@ function About() {
                 and the art of sharing. Join us on this journey as we explore flavors, techniques, and stories
                 behind every dish.
             </p>
-            <img src="/WorldFood.png" alt="World Food" className="world-food-image"/>
+            <img src="/WorldFood.jpg" alt="World Food" className="world-food-image"/>
         </div>
     );
 }
 
-export default About;
+

@@ -1,51 +1,78 @@
+/* App.css */
+
 .App {
     text-align: center;
     margin-top: 50px;
 }
 
-.form {
-    display: inline-block; /* Keep form elements inline */
-    text-align: left;
-    margin-top: 20px;
-}
-
-.div {
-    margin-bottom: 15px;
-}
-
-.label {
-    margin-right: 10px;
+/* Welcome message styling */
+h1 {
+    font-size: 2em;
     font-weight: bold;
+    color: #333;
 }
 
-.input {
-    padding: 8px;
-    font-size: 16px;
-    width: 200px;
-    box-sizing: border-box;
-    margin: 5px;
+/* Navbar styling to center links */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
 }
 
-input::placeholder {
-    color: #666;
+.navbar a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.1em;
 }
 
-.button {
-    border-right: 4px;
+.navbar a:hover {
+    color: #007BFF;
+}
+
+/* Dashboard button styling */
+.dashboard-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #007BFF;
     border: none;
-    padding: 8px 16px;
-    font-size: 16px;
+    border-radius: 5px;
     cursor: pointer;
-    margin: 5px;
 }
 
-.p {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
+.dashboard-button:hover {
+    background-color: #0056b3;
 }
-.greeting-message {
-    margin-top: 20px;
-    font-size: 20px;
-    font-weight: bold;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
