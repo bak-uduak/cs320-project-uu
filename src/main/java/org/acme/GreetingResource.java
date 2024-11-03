@@ -10,6 +10,7 @@ import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+import java.time.LocalDate;
 import java.util.List;
 
 @Path("/hello")
@@ -89,6 +90,70 @@ public class GreetingResource {
         userName.delete();
         return Response.noContent().build();
     }
+
+    // GET request to retrieve all comments
+    @GET
+    @Path("/comments")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<Comments> getAllComments() {
+        return Comments.listAll();
+    }
+
+    // POST request to add a new comment
+    @POST
+    @Path("/comments")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response addComment(CommentRequest request) {
+        UserName userName = UserName.findById(request.userId);
+        if (userName == null) {
+            return Response.status(Response.Status.NOT_FOUND).entity("User not found").build();
+        }
+
+        Comments comment = new Comments();
+        comment.setText(request.text);
+        comment.setDatePosted(LocalDate.now());
+        comment.setUserName(userName);
+        comment.persist();
+
+        return Response.ok(comment).build();
+    }
+
+    // PUT request to update a comment
+    @PUT
+    @Path("/comments/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response updateComment(@PathParam("id") Long id, CommentRequest request) {
+        Comments comment = Comments.findById(id);
+        if (comment == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        comment.setText(request.text);
+        return Response.ok(comment).build();
+    }
+
+    // DELETE request to remove a comment
+    @DELETE
+    @Path("/comments/{id}")
+    @Transactional
+    public Response deleteComment(@PathParam("id") Long id) {
+        Comments comment = Comments.findById(id);
+        if (comment == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        comment.delete();
+        return Response.noContent().build();
+    }
+
+    // DTO for Comment requests
+    public static class CommentRequest {
+        public Long userId;
+        public String text;
+    }
+
 
     // Inner DTO class for handling POST request data
     public static class Person {
